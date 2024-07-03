@@ -1,0 +1,20 @@
+n = input("Choose arithmetic operation (+, -, *, /, %): ")
+num1 = float(input("Enter num1: "))
+num2 = float(input("Enter num2: "))
+
+if n == "+":
+    num = num1 + num2
+elif n == "-":
+    num = num1 - num2
+elif n == "*":
+    num = num1 * num2
+elif n == "/":
+    num = num1 / num2
+elif n == "%":
+    num = num1 % num2
+else:
+    print("Invalid input")
+    num = None
+
+if num is not None:
+    print(f"Your answer is {num}")
