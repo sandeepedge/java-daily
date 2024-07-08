@@ -1,20 +1,45 @@
-n = input("Choose arithmetic operation (+, -, *, /, %): ")
-num1 = float(input("Enter num1: "))
-num2 = float(input("Enter num2: "))
+import java.util.Scanner;
 
-if n == "+":
-    num = num1 + num2
-elif n == "-":
-    num = num1 - num2
-elif n == "*":
-    num = num1 * num2
-elif n == "/":
-    num = num1 / num2
-elif n == "%":
-    num = num1 % num2
-else:
-    print("Invalid input")
-    num = None
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-if num is not None:
-    print(f"Your answer is {num}")
+        System.out.print("Choose arithmetic operation (+, -, *, /, %): ");
+        String n = scanner.nextLine();
+
+        System.out.print("Enter num1: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter num2: ");
+        double num2 = scanner.nextDouble();
+
+        double num;
+        switch (n) {
+            case "+":
+                num = num1 + num2;
+                break;
+            case "-":
+                num = num1 - num2;
+                break;
+            case "*":
+                num = num1 * num2;
+                break;
+            case "/":
+                num = num1 / num2;
+                break;
+            case "%":
+                num = num1 % num2;
+                break;
+            default:
+                System.out.println("Invalid input");
+                num = Double.NaN; // Using NaN to signify an invalid result
+        }
+
+        if (!Double.isNaN(num)) {
+            System.out.printf("Your answer is %.2f%n", num);
+        }
+
+        scanner.close();
+    }
+}
+
