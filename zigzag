@@ -1,0 +1,35 @@
+public class Solution {
+    public String convert(String s,int numrows) {
+        if(numrows==1) return s;
+        
+        StringBuilder[] res = new StringBuilder[numrows];
+        for(int i=0;i<numrows;i++) {
+            res[i] = new StringBuilder();
+        }
+        
+        int increment = 2*(numrows-1);
+        
+        for(int i=0;i<s.length();i++){
+            int row = i % increment;
+            if(row>=numrows){
+                row=increment-row;
+            }
+            res[row].append(s.charAt(i));
+        }
+        
+        StringBuilder result = new StringBuilder();
+        for(StringBuilder sb : res){
+            result.append(sb);
+        }
+        
+       return result.toString();
+    }
+    
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String s = "PAYPALISHIRING";
+        int numrows = 4;
+        String result = solution.convert(s,numrows);
+        System.out.println(result);
+    }
+}
